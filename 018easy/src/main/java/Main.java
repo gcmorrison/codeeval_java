@@ -4,7 +4,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- * This class is the template that all solutions should be based off of
+ * Created by campbell on 2015/12/18.
  */
 public class Main {
 
@@ -20,7 +20,16 @@ public class Main {
         }
     }
 
-    String printResult(String line) {
-        return "";
+    int printResult(String line) {
+        String[] numbers = line.split(",");
+        int baseNumber = Integer.valueOf(numbers[0]);
+        int multipleNumber = Integer.valueOf(numbers[1]);
+
+        int number = multipleNumber;
+        while (number < baseNumber) {
+            number += multipleNumber;
+        }
+
+        return number;
     }
 }
