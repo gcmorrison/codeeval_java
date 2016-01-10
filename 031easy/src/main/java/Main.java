@@ -4,7 +4,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- * This class is the template that all solutions should be based off of
+ * Created by Campbell on 2016/01/10.
  */
 public class Main {
 
@@ -21,6 +21,15 @@ public class Main {
     }
 
     void printResult(String line) {
-        System.out.println("");
+        if (line == null || line.trim().length() == 0) {
+            return;
+        }
+
+        handleInput(line);
+    }
+
+    private void handleInput(String line) {
+        String[] values = line.split(",");
+        System.out.println(values[0].lastIndexOf(values[1]));
     }
 }
