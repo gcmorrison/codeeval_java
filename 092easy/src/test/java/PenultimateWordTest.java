@@ -1,8 +1,10 @@
 import org.junit.Before;
+import org.junit.Test;
 
 import java.io.PrintStream;
 
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 /**
  * Created by Campbell on 2016/01/15.
@@ -20,5 +22,15 @@ public class PenultimateWordTest {
         classUnderTest = new Main();
     }
 
-    // TODO
+    @Test
+    public void testTwoWords() throws Exception {
+        classUnderTest.printResult("one word");
+        verify(mockOut).println("one");
+    }
+
+    @Test
+    public void testManyWords() throws Exception {
+        classUnderTest.printResult("this is my totally legitimate test");
+        verify(mockOut).println("legitimate");
+    }
 }
