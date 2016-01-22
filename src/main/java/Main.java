@@ -21,6 +21,10 @@ public class Main {
     }
 
     void printResult(String line) {
-        System.out.println("");
+        System.out.println(doSomething(line));
+    }
+
+    public String doSomething(String input) {
+        return null;
     }
 }
