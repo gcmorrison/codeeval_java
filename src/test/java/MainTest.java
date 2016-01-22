@@ -3,11 +3,14 @@
  */
 
 import org.junit.Before;
+import org.junit.Test;
 
 import java.io.File;
 import java.io.PrintStream;
 
-import static org.mockito.Mockito.mock;
+import static org.junit.Assert.assertNull;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.*;
 
 /**
  * This class is the template that all unit tests should be based off of
@@ -26,5 +29,23 @@ public class MainTest {
         System.setOut(mockOut);
 
         classUnderTest = new Main();
+    }
+
+
+    @Test
+    public void testPrintResult() throws Exception {
+        String testOutput = "testOutput";
+
+        classUnderTest = spy(classUnderTest);
+        doReturn(testOutput).when(classUnderTest).doSomething(anyString());
+
+        classUnderTest.printResult("");
+        verify(mockOut).println(testOutput);
+    }
+
+    @Test
+    public void testEmptyInput() throws Exception {
+        assertNull(classUnderTest.doSomething(null));
+        assertNull(classUnderTest.doSomething(""));
     }
 }
