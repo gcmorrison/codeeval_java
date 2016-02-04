@@ -31,7 +31,6 @@ public class MainTest {
         classUnderTest = new Main();
     }
 
-
     @Test
     public void testPrintResult() throws Exception {
         String testOutput = "testOutput";
